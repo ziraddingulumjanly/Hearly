@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f8f5ec" />
+  <meta name="description" content="Hearly is a private, local-first English listening, spelling and dictation practice app for Grade 1, Grade 5 and Grade 7 learners." />
+  <title>Hearly — Listen. Write. Grow.</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <button class="brand" data-action="home" aria-label="Go to home">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/hearly-mark.svg" alt="" /></span>
+        <span class="brand-copy"><strong>Hearly</strong><small>Listen. Write. Grow.</small></span>
+      </button>
+      <div class="header-actions">
+        <button class="icon-button" data-action="open-progress" title="Progress" aria-label="Open progress">↗</button>
+        <button class="icon-button" data-action="open-settings" title="Settings" aria-label="Open settings">⚙</button>
+      </div>
+    </header>
+
+    <main id="app" tabindex="-1"></main>
+
+    <footer class="site-footer">
+      <div class="footer-copy"><strong>© 2026 Uncle Z</strong><span>Progress stays in this browser on this device.</span></div>
+      <button class="text-button" data-action="open-privacy">How storage works</button>
+    </footer>
+  </div>
+
+  <dialog id="modal" class="modal">
+    <div class="modal-card">
+      <button class="modal-close" data-action="close-modal" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </dialog>
+
+  <input id="importFile" type="file" accept="application/json" hidden />
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

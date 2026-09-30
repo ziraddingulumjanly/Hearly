@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Hearly sparkle mark</title>
+  <desc id="desc">A custom four-point listening and learning sparkle.</desc>
+  <path d="M64 8C68 34 78 49 101 57C78 65 68 80 64 120C60 80 50 65 27 57C50 49 60 34 64 8Z" fill="currentColor"/>
+  <path d="M97 20C99 31 104 37 114 40C104 43 99 49 97 60C95 49 90 43 80 40C90 37 95 31 97 20Z" fill="currentColor" opacity=".58"/>
+</svg>

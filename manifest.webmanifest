@@ -1,0 +1,11 @@
+{
+  "name": "Hearly — Listen. Write. Grow.",
+  "short_name": "Hearly",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8f5ec",
+  "theme_color": "#f8f5ec",
+  "icons": [
+    {"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}

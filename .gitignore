@@ -1,0 +1,14 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Local dependencies/build output (not currently required)
+node_modules/
+dist/
