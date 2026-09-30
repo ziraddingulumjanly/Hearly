@@ -93,7 +93,7 @@
     if(g===1){
       cards+=dashCard('School path','8 textbook-aligned topics','Numbers, feelings, school, colours, clothes, body, family and animals.','▦','school','sun');
       cards+=dashCard('Extra words','5 bonus vocabulary packs','Fruits, home, food, transport and toys for extra listening practice.','＋','extra','mint');
-      cards+=dashCard('My mistakes', mistakes?`${mistakes} items to revisit`:'Nothing saved yet','Missed words and sentences return here for focused practice.','↺','mistakes','mistakes');
+      cards+=dashCard('My mistakes', mistakes?`${mistakes} items to revisit`:'Nothing saved yet','Missed words and sentences return here for focused practice.','↺','mistakes','coral');
     }else if(g===5){
       cards+=dashCard('Vocabulary','12 Grade 5 word groups','School objects, personal details, countries, home, family, routines, clothes, sports and more.','Aa','vocabulary','sky');
       cards+=dashCard('Basic sentences','Gentle dictation first','Very short sentences, questions, classroom English and daily routines.','1','basics','sun');
@@ -104,7 +104,7 @@
       cards+=dashCard('Vocabulary','8 useful word groups','Nouns, verbs, adjectives, adverbs, pronouns, prepositions, conjunctions and more.','Aa','vocabulary','sky');
       cards+=dashCard('Basic sentences','Start here if dictation feels hard','Short, clear patterns before grammar-focused practice.','1','basics','sun');
       cards+=dashCard('Grammar','12 focused listening sets','Tenses, used to, too/enough, conditionals, tag questions and more.','⌁','grammar','violet');
-      cards+=dashCard('School topics','6 textbook-aligned themes','Schools, technology, talent, travel, friendship and the future.','▦','schoolTopics','schoolTopics');
+      cards+=dashCard('School topics','6 textbook-aligned themes','Schools, technology, talent, travel, friendship and the future.','▦','schoolTopics','mint');
       cards+=dashCard('My mistakes', mistakes?`${mistakes} items to revisit`:'Nothing saved yet','Practise the items that have caused trouble most often.','↺','mistakes','coral');
     }
     app.innerHTML=`
