@@ -55,7 +55,7 @@
           <p>Three school-aligned paths: playful foundations for Grade 1, strong core English for Grade 5, and structured vocabulary, grammar and dictation for Grade 7.</p>
           <div class="hero-actions">
             <a class="world-game-button" href="https://ziraddingulumjanly.github.io/Alps/" target="_blank" rel="noopener noreferrer" aria-label="Play the World Map Game in a new tab">
-              <span class="mini-spark" aria-hidden="true"></span>
+              <span class="mini-map" aria-hidden="true">🌍</span>
               <span><strong>Play World Map Game</strong><small>Bonus geography game · opens in a new tab</small></span>
               <b aria-hidden="true">↗</b>
             </a>
@@ -82,27 +82,30 @@
       <span class="card-arrow">Open →</span>
     </article>`;
   }
+    function tone(index){
+    return ['sun','sky','violet','mint','coral','aqua','rose','peach'][index % 8];
+  }
 
   function renderDashboard(){
     const g=state.grade, d=DATA[`grade${g}`], p=progress[gradeKey()];
     const mistakes=Object.keys(progress.mistakes[gradeKey()]||{}).length;
     let cards='';
     if(g===1){
-      cards+=dashCard('School path','8 textbook-aligned topics','Numbers, feelings, school, colours, clothes, body, family and animals.','▦','school','school');
-      cards+=dashCard('Extra words','5 bonus vocabulary packs','Fruits, home, food, transport and toys for extra listening practice.','＋','extra','extra');
+      cards+=dashCard('School path','8 textbook-aligned topics','Numbers, feelings, school, colours, clothes, body, family and animals.','▦','school','sun');
+      cards+=dashCard('Extra words','5 bonus vocabulary packs','Fruits, home, food, transport and toys for extra listening practice.','＋','extra','mint');
       cards+=dashCard('My mistakes', mistakes?`${mistakes} items to revisit`:'Nothing saved yet','Missed words and sentences return here for focused practice.','↺','mistakes','mistakes');
     }else if(g===5){
-      cards+=dashCard('Vocabulary','12 Grade 5 word groups','School objects, personal details, countries, home, family, routines, clothes, sports and more.','Aa','vocabulary','vocabulary');
-      cards+=dashCard('Basic sentences','Gentle dictation first','Very short sentences, questions, classroom English and daily routines.','1','basics','basics');
-      cards+=dashCard('Grammar','9 core grammar sets','To be, possessives, there is/are, have/has, present simple, present continuous, can and more.','⌁','grammar','grammar');
-      cards+=dashCard('School units','8 textbook-aligned themes','Who Am I, English Everywhere, Home, Family, Daily Life, School, Clothes and Sports.','▦','schoolTopics','schoolTopics');
-      cards+=dashCard('My mistakes', mistakes?`${mistakes} items to revisit`:'Nothing saved yet','Practise the words and sentences that need more repetition.','↺','mistakes','mistakes');
+      cards+=dashCard('Vocabulary','12 Grade 5 word groups','School objects, personal details, countries, home, family, routines, clothes, sports and more.','Aa','vocabulary','sky');
+      cards+=dashCard('Basic sentences','Gentle dictation first','Very short sentences, questions, classroom English and daily routines.','1','basics','sun');
+      cards+=dashCard('Grammar','9 core grammar sets','To be, possessives, there is/are, have/has, present simple, present continuous, can and more.','⌁','grammar','violet');
+      cards+=dashCard('School units','8 textbook-aligned themes','Who Am I, English Everywhere, Home, Family, Daily Life, School, Clothes and Sports.','▦','schoolTopics','mint');
+      cards+=dashCard('My mistakes', mistakes?`${mistakes} items to revisit`:'Nothing saved yet','Practise the words and sentences that need more repetition.','↺','mistakes','coral');
     }else{
-      cards+=dashCard('Vocabulary','8 useful word groups','Nouns, verbs, adjectives, adverbs, pronouns, prepositions, conjunctions and more.','Aa','vocabulary','vocabulary');
-      cards+=dashCard('Basic sentences','Start here if dictation feels hard','Short, clear patterns before grammar-focused practice.','1','basics','basics');
-      cards+=dashCard('Grammar','12 focused listening sets','Tenses, used to, too/enough, conditionals, tag questions and more.','⌁','grammar','grammar');
+      cards+=dashCard('Vocabulary','8 useful word groups','Nouns, verbs, adjectives, adverbs, pronouns, prepositions, conjunctions and more.','Aa','vocabulary','sky');
+      cards+=dashCard('Basic sentences','Start here if dictation feels hard','Short, clear patterns before grammar-focused practice.','1','basics','sun');
+      cards+=dashCard('Grammar','12 focused listening sets','Tenses, used to, too/enough, conditionals, tag questions and more.','⌁','grammar','violet');
       cards+=dashCard('School topics','6 textbook-aligned themes','Schools, technology, talent, travel, friendship and the future.','▦','schoolTopics','schoolTopics');
-      cards+=dashCard('My mistakes', mistakes?`${mistakes} items to revisit`:'Nothing saved yet','Practise the items that have caused trouble most often.','↺','mistakes','mistakes');
+      cards+=dashCard('My mistakes', mistakes?`${mistakes} items to revisit`:'Nothing saved yet','Practise the items that have caused trouble most often.','↺','mistakes','coral');
     }
     app.innerHTML=`
       ${crumb(`<button data-action="home">Home</button><span class="crumb-sep">/</span><span>Grade ${g}</span>`)}
@@ -112,7 +115,7 @@
   }
 
   function dashCard(title,meta,desc,icon,section,accent){
-    return `<article class="card clickable" data-action="open-section" data-section="${section}"><div class="card-icon">${icon}</div><h3>${title}</h3><div class="card-meta">${meta}</div><p>${desc}</p><span class="card-arrow">Open →</span></article>`;
+    return `<article class="card clickable section-card tone-${accent}" data-action="open-section" data-section="${section}"><div class="card-icon">${icon}</div><h3>${title}</h3><div class="card-meta">${meta}</div><p>${desc}</p><span class="card-arrow">Open →</span></article>`;
   }
 
   function renderSection(){
@@ -129,10 +132,11 @@
     if(g===7 && state.section==='basics'){title='Basic sentences';sub='Short dictation before the more demanding grammar sets.';source=DATA.grade7.basics}
     if(g===7 && state.section==='grammar'){title='Grammar listening';sub='Focused sentence sets based on the grammar level used in the Grade 7 course.';source=DATA.grade7.grammar}
     if(g===7 && state.section==='schoolTopics'){title='School topics';sub='Practice the six themes used across the Grade 7 textbook.';source=DATA.grade7.schoolTopics}
-    const cards=Object.entries(source).map(([name,obj])=>{
+    const cards=Object.entries(source).map(([name,obj],idx)=>{
       const n=(obj.words?.length||0)+(obj.sentences?.length||0)+(obj.phrases?.length||0);
       const cstat=progress[gradeKey()].categories[`${state.section}::${name}`];
-      return `<article class="card topic-card clickable" data-action="open-topic" data-topic="${encodeURIComponent(name)}">
+      const accent=obj.accent || tone(idx);
+      return `<article class="card topic-card clickable tone-${accent}" data-action="open-topic" data-topic="${encodeURIComponent(name)}">
         <div class="card-icon" ${obj.color?`style="background:${obj.color}"`:''}>${esc(obj.icon||'•')}</div>
         <h3>${esc(name)}</h3>${obj.unit?`<div class="card-meta">${esc(obj.unit)} · ${n} practice items</div>`:`<div class="card-meta">${n} practice items</div>`}
         ${obj.note?`<p>${esc(obj.note)}</p>`:''}
@@ -163,7 +167,7 @@
     }
     app.innerHTML=`${crumb(`<button data-action="dashboard">Grade ${g}</button><span class="crumb-sep">/</span><button data-action="back-section">${esc(sectionTitle())}</button><span class="crumb-sep">/</span><span>${esc(name)}</span>`)}
       <div class="section-head"><div><div class="kicker">${esc(obj.unit||`Grade ${g}`)}</div><h1>${esc(name)}</h1><p>${g===1?'Start with the easiest layer and move up when it feels comfortable.':obj.note?`Focus: ${esc(obj.note)}.`:'Choose the kind of practice you want.'}</p></div></div>
-      <section class="grid card-grid">${modes.map(m=>`<article class="card clickable" data-action="start-mode" data-level="${m.id}"><div class="card-icon">${m.icon}</div><h3>${m.title}</h3><div class="card-meta">${m.count} available items</div><p>${m.desc}</p><span class="card-arrow">Start →</span></article>`).join('')}</section>`;
+      <section class="grid card-grid">${modes.map((m,idx)=>`<article class="card clickable mode-card tone-${tone(idx)}" data-action="start-mode" data-level="${m.id}"><div class="card-icon">${m.icon}</div><h3>${m.title}</h3><div class="card-meta">${m.count} available items</div><p>${m.desc}</p><span class="card-arrow">Start →</span></article>`).join('')}</section>`;
   }
 
   function sectionTitle(){
