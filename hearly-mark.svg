@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Hearly five-point star</title>
+  <desc id="desc">A glossy rainbow five-point star with bright highlights.</desc>
+  <defs>
+    <linearGradient id="rainbow" x1="18" y1="18" x2="108" y2="111" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#72e8ff"/>
+      <stop offset=".22" stop-color="#6b8cff"/>
+      <stop offset=".45" stop-color="#a95cff"/>
+      <stop offset=".67" stop-color="#ff59a8"/>
+      <stop offset=".84" stop-color="#ff9f43"/>
+      <stop offset="1" stop-color="#ffe45e"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="31" y1="26" x2="78" y2="87" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".98"/>
+      <stop offset=".33" stop-color="#fff" stop-opacity=".54"/>
+      <stop offset=".72" stop-color="#fff" stop-opacity=".04"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="core" cx="42%" cy="33%" r="70%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="starShadow" x="-35%" y="-35%" width="170%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#6848d5" flood-opacity=".30"/>
+    </filter>
+  </defs>
+  <path filter="url(#starShadow)" d="M64 9.5 80.1 42l35.9 5.2-26 25.3 6.1 35.8L64 91.4 31.9 108.3 38 72.5 12 47.2 47.9 42 64 9.5Z" fill="url(#rainbow)" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M64 17.5 77 43.8l29.1 4.2-21 20.5 5 29-26.1-13.7-26.1 13.7 5-29-21-20.5L51 43.8 64 17.5Z" fill="url(#core)"/>
+  <path d="M38 49c11-18 31-25 49-15 5 3 9 7 12 11-21-7-42 1-55 17-4 5-7 10-8 16-5-10-5-20 2-29Z" fill="url(#shine)"/>
+  <path d="M45 38c8-7 20-10 30-7" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M96 20v10M91 25h10" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="104" cy="36" r="3" fill="#fff"/>
+</svg>

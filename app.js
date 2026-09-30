@@ -331,7 +331,7 @@
   }
 
   function renderPrivacyModal(){
-    modalContent.innerHTML=`<h2>How storage works</h2><p><strong>Your nephew’s answers are not sent to you or to us.</strong> This project has no backend. Progress, scores and mistakes are stored with the browser’s <code>localStorage</code> on the phone, tablet or computer being used.</p><p>That also means progress normally does not follow the learner to another device. Clearing site/browser data can remove it. Use <strong>Export backup</strong> if you want to move progress between devices without creating accounts.</p><p>The only browser feature used for audio is built-in text-to-speech. The published GitHub Pages site can remain fully static.</p>`;modal.showModal();
+    modalContent.innerHTML=`<h2>How storage works</h2><p> This project has no backend. Progress, scores and mistakes are stored with the browser’s <code>localStorage</code> on the phone, tablet or computer being used.</p><p>That also means progress normally does not follow the learner to another device. Clearing site/browser data can remove it. Use <strong>Export backup</strong> if you want to move progress between devices without creating accounts.</p><p>The only browser feature used for audio is built-in text-to-speech. The published GitHub Pages site can remain fully static.</p>`;modal.showModal();
   }
 
   function exportProgress(){

@@ -24,7 +24,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .app-shell{min-height:100vh;display:flex;flex-direction:column}
 .site-header{width:min(1180px,calc(100% - 32px));margin:0 auto;min-height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(23,49,65,.12)}
 .brand{border:0;background:transparent;display:flex;align-items:center;gap:12px;padding:0;cursor:pointer;text-align:left}
-.brand-mark{width:42px;height:42px;border-radius:13px;background:var(--navy);color:var(--yellow);display:grid;place-items:center;font-weight:950;font-size:23px;box-shadow:inset 0 -3px rgba(0,0,0,.12)}
+.brand-mark{width:52px;height:52px;border-radius:16px;background:linear-gradient(145deg,#ffffff,#e6eef8);display:grid;place-items:center;box-shadow:0 10px 22px rgba(23,49,65,.10), inset 0 1px 0 rgba(255,255,255,.92);overflow:hidden}.brand-mark img{width:52px;height:52px;display:block}
 .brand-copy{display:flex;flex-direction:column;line-height:1.05}.brand-copy strong{font-size:17px;letter-spacing:-.2px}.brand-copy small{font-size:12px;color:var(--muted);margin-top:4px}
 .header-actions{display:flex;gap:8px}.icon-button{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.55);cursor:pointer;display:grid;place-items:center;font-weight:800}.icon-button:hover{background:white}
 main#app{width:min(1180px,calc(100% - 32px));margin:0 auto;flex:1;padding:34px 0 62px}
@@ -54,18 +54,80 @@ h1,h2,h3,p{margin-top:0}.hero h1{font-size:clamp(44px,7vw,82px);line-height:.93;
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 /* Hearly brand refresh */
-.brand-mark{overflow:hidden;background:var(--navy);color:var(--yellow)}
-.brand-mark img{width:29px;height:29px;display:block;color:var(--yellow)}
+.brand-mark{width:62px;height:62px;border-radius:18px;overflow:hidden;background:transparent;box-shadow:0 10px 24px rgba(23,49,65,.14)}
+.brand-mark img{width:62px;height:62px;display:block}
 .footer-copy{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
 .footer-copy strong{color:var(--ink)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.world-game-button{display:inline-flex;align-items:center;gap:13px;min-width:min(100%,330px);padding:13px 15px;border:1px solid rgba(23,49,65,.18);border-radius:18px;background:rgba(255,255,255,.62);color:var(--ink);text-decoration:none;box-shadow:0 3px 0 rgba(23,49,65,.08);transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+.world-game-button{display:inline-flex;align-items:center;gap:13px;min-width:min(100%,330px);padding:13px 15px;border:1px solid rgba(23,49,65,.18);border-radius:18px;background:rgba(255,255,255,.68);color:var(--ink);text-decoration:none;box-shadow:0 3px 0 rgba(23,49,65,.08);transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
 .world-game-button:hover{transform:translateY(-2px);background:#fff;box-shadow:0 9px 24px rgba(23,49,65,.10)}
 .world-game-button:focus-visible{outline:3px solid rgba(79,140,201,.32);outline-offset:3px}
 .world-game-button>span:nth-child(2){display:flex;flex-direction:column;line-height:1.12}
 .world-game-button strong{font-size:14px}
 .world-game-button small{font-size:11px;color:var(--muted);margin-top:4px}
 .world-game-button b{margin-left:auto;font-size:18px}
-.mini-spark{width:34px;height:34px;flex:0 0 34px;position:relative;border-radius:11px;background:var(--navy)}
-.mini-spark:before{content:"";position:absolute;inset:7px;background:var(--yellow);clip-path:polygon(50% 0,61% 38%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 38%)}
-@media(max-width:640px){.world-game-button{width:100%}.footer-copy{flex-direction:column;align-items:flex-start;gap:5px}}
+.mini-globe{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#eaf6ff,#dcebf7);box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.mini-globe svg{width:34px;height:34px;display:block;filter:drop-shadow(0 3px 6px rgba(10,55,111,.18))}
+.card.tone-sky{background:linear-gradient(180deg,#f8fcff 0%,#eef7ff 100%);border-color:#cfe0f1}.card.tone-sky .card-icon{background:#dceeff;color:#1f5d96}.card.tone-sky::after{background:#abd3ff}
+.card.tone-sun{background:linear-gradient(180deg,#fffdf5 0%,#fff7db 100%);border-color:#ecd893}.card.tone-sun .card-icon{background:#fff0b8;color:#8b5e00}.card.tone-sun::after{background:#f7d45d}
+.card.tone-violet{background:linear-gradient(180deg,#fcf8ff 0%,#f3ebff 100%);border-color:#dccaf4}.card.tone-violet .card-icon{background:#ead8ff;color:#6842a8}.card.tone-violet::after{background:#ccaef7}
+.card.tone-mint{background:linear-gradient(180deg,#f7fffb 0%,#e7f9f0 100%);border-color:#cce8d9}.card.tone-mint .card-icon{background:#d8f4e6;color:#217352}.card.tone-mint::after{background:#8fddbb}
+.card.tone-coral{background:linear-gradient(180deg,#fff9f7 0%,#ffeee8 100%);border-color:#f1d1c5}.card.tone-coral .card-icon{background:#ffd8cb;color:#a04731}.card.tone-coral::after{background:#ffb59e}
+.section-card,.topic-card,.mode-card{position:relative;overflow:hidden}
+.section-card::after{content:"";position:absolute;right:-34px;top:-34px;width:110px;height:110px;border-radius:50%;opacity:.45;pointer-events:none}
+.section-card .card-icon{box-shadow:inset 0 1px 0 rgba(255,255,255,.75)}
+.section-card.tone-sky{background:linear-gradient(180deg,#f8fcff 0%,#eef7ff 100%)}
+.section-card.tone-sky .card-icon{background:#dceeff;color:#1f5d96}
+.section-card.tone-sky::after{background:#abd3ff}
+.section-card.tone-sun{background:linear-gradient(180deg,#fffdf5 0%,#fff7db 100%)}
+.section-card.tone-sun .card-icon{background:#fff0b8;color:#8b5e00}
+.section-card.tone-sun::after{background:#f7d45d}
+.section-card.tone-violet{background:linear-gradient(180deg,#fcf8ff 0%,#f3ebff 100%)}
+.section-card.tone-violet .card-icon{background:#ead8ff;color:#6842a8}
+.section-card.tone-violet::after{background:#ccaef7}
+.section-card.tone-mint{background:linear-gradient(180deg,#f7fffb 0%,#e7f9f0 100%)}
+.section-card.tone-mint .card-icon{background:#d8f4e6;color:#217352}
+.section-card.tone-mint::after{background:#8fddbb}
+.section-card.tone-coral{background:linear-gradient(180deg,#fff9f7 0%,#ffeee8 100%)}
+.section-card.tone-coral .card-icon{background:#ffd8cb;color:#a04731}
+.section-card.tone-coral::after{background:#ffb59e}
+@media(max-width:640px){.world-game-button{width:100%}.footer-copy{flex-direction:column;align-items:flex-start;gap:5px}.brand-mark{width:56px;height:56px;border-radius:16px}.brand-mark img{width:56px;height:56px}}
+
+/* Hearly visual refresh: glossy star, world-map badge, and stronger card variety */
+.brand-mark{
+  background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.98),rgba(255,255,255,.7) 44%,rgba(222,235,255,.38) 72%,rgba(255,255,255,.18));
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 10px 28px rgba(95,83,190,.16),inset 0 1px 0 #fff;
+  overflow:visible;
+}
+.brand-mark img{width:48px;height:48px;filter:drop-shadow(0 7px 9px rgba(100,67,199,.18))}
+.mini-map{width:56px;height:44px;border-radius:13px;display:grid;place-items:center;flex:0 0 auto;box-shadow:0 5px 13px rgba(28,104,177,.18);overflow:hidden}
+.mini-map svg{width:56px;height:44px;display:block}
+.world-game-button{background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(231,247,255,.86));border-color:#b9dcef}
+.world-game-button:hover{background:linear-gradient(135deg,#fff,#edfaff);border-color:#8ec9e8}
+
+/* Every learning card gets a clearer individual colour identity. */
+.card.tone-aqua{background:linear-gradient(180deg,#f5ffff 0%,#e1f8f7 100%);border-color:#bce5e2}
+.card.tone-aqua .card-icon{background:#c9f1ee;color:#176e6a}
+.card.tone-aqua::after{background:#79d9d2}
+.card.tone-rose{background:linear-gradient(180deg,#fff8fc 0%,#ffeaf5 100%);border-color:#efc9de}
+.card.tone-rose .card-icon{background:#ffd6ea;color:#a43e73}
+.card.tone-rose::after{background:#f3a3ca}
+.card.tone-peach{background:linear-gradient(180deg,#fffaf6 0%,#ffecde 100%);border-color:#f0cfba}
+.card.tone-peach .card-icon{background:#ffdcca;color:#9a5330}
+.card.tone-peach::after{background:#f6b58e}
+
+.topic-card,.mode-card{border-top-width:4px}
+.topic-card::before,.mode-card::before{
+  content:"";position:absolute;right:-24px;top:-28px;width:105px;height:105px;border-radius:32px;transform:rotate(24deg);opacity:.2;pointer-events:none
+}
+.topic-card.tone-sky,.mode-card.tone-sky{border-top-color:#65a9e5}.topic-card.tone-sky::before,.mode-card.tone-sky::before{background:#65a9e5}
+.topic-card.tone-sun,.mode-card.tone-sun{border-top-color:#e6b72b}.topic-card.tone-sun::before,.mode-card.tone-sun::before{background:#e6b72b}
+.topic-card.tone-violet,.mode-card.tone-violet{border-top-color:#9e75df}.topic-card.tone-violet::before,.mode-card.tone-violet::before{background:#9e75df}
+.topic-card.tone-mint,.mode-card.tone-mint{border-top-color:#5fbf91}.topic-card.tone-mint::before,.mode-card.tone-mint::before{background:#5fbf91}
+.topic-card.tone-coral,.mode-card.tone-coral{border-top-color:#ef8f72}.topic-card.tone-coral::before,.mode-card.tone-coral::before{background:#ef8f72}
+.topic-card.tone-aqua,.mode-card.tone-aqua{border-top-color:#54c9c1}.topic-card.tone-aqua::before,.mode-card.tone-aqua::before{background:#54c9c1}
+.topic-card.tone-rose,.mode-card.tone-rose{border-top-color:#e984b5}.topic-card.tone-rose::before,.mode-card.tone-rose::before{background:#e984b5}
+.topic-card.tone-peach,.mode-card.tone-peach{border-top-color:#eea676}.topic-card.tone-peach::before,.mode-card.tone-peach::before{background:#eea676}
+.topic-card .card-icon,.mode-card .card-icon{position:relative;z-index:1}
+@media(max-width:640px){.mini-map,.mini-map svg{width:50px;height:40px}.brand-mark img{width:50px;height:50px}}
